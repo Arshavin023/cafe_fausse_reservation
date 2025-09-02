@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+
+{% block title %}Reservations | Café Fausse{% endblock %}
+
+{% block container %}
+<main class="w-full container mx-auto bg-white rounded-lg shadow-lg p-8 md:p-12 my-8">
+    <h1 class="text-5xl font-bold text-center text-[#4a4a4a] mb-8">Make a Reservation</h1>
+    <p class="text-center text-lg text-gray-700 mb-10">
+        Book your table at Café Fausse for an unforgettable dining experience.
+    </p>
+
+    <div class="max-w-xl mx-auto">
+        <form method="POST" class="space-y-6">
+            {{ form.hidden_tag() }}
+
+            <div>
+                {{ form.guest_name.label(class="block text-sm font-medium text-gray-700") }}
+                {{ form.guest_name(class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#8c7851] focus:ring focus:ring-[#8c7851] focus:ring-opacity-50", placeholder="Full Name") }}
+                {% for error in form.guest_name.errors %}
+                <span class="text-red-500 text-sm mt-1">{{ error }}</span>
+                {% endfor %}
+            </div>
+
+            <div>
+                {{ form.guest_email.label(class="block text-sm font-medium text-gray-700") }}
+                {{ form.guest_email(class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#8c7851] focus:ring focus:ring-[#8c7851] focus:ring-opacity-50", placeholder="Email Address") }}
+                {% for error in form.guest_email.errors %}
+                <span class="text-red-500 text-sm mt-1">{{ error }}</span>
+                {% endfor %}
+            </div>
+
+            <div>
+                {{ form.guest_phone_number.label(class="block text-sm font-medium text-gray-700") }}
+                {{ form.guest_phone_number(class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#8c7851] focus:ring focus:ring-[#8c7851] focus:ring-opacity-50", placeholder="Phone Number (optional)") }}
+                {% for error in form.guest_phone_number.errors %}
+                <span class="text-red-500 text-sm mt-1">{{ error }}</span>
+                {% endfor %}
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    {{ form.number_of_guests.label(class="block text-sm font-medium text-gray-700") }}
+                    {{ form.number_of_guests(class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#8c7851] focus:ring focus:ring-[#8c7851] focus:ring-opacity-50") }}
+                    {% for error in form.number_of_guests.errors %}
+                    <span class="text-red-500 text-sm mt-1">{{ error }}</span>
+                    {% endfor %}
+                </div>
+                <div>
+                    {{ form.table_number.label(class="block text-sm font-medium text-gray-700") }}
+                    {{ form.table_number(class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#8c7851] focus:ring focus:ring-[#8c7851] focus:ring-opacity-50") }}
+                    {% for error in form.table_number.errors %}
+                    <span class="text-red-500 text-sm mt-1">{{ error }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div>
+                {{ form.time_slot.label(class="block text-sm font-medium text-gray-700") }}
+                {{ form.time_slot(class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#8c7851] focus:ring focus:ring-[#8c7851] focus:ring-opacity-50", type="datetime-local") }}
+                {% for error in form.time_slot.errors %}
+                <span class="text-red-500 text-sm mt-1">{{ error }}</span>
+                {% endfor %}
+            </div>
+
+            <div class="flex space-x-4">
+                {{ form.submit(class="w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[#8c7851] hover:bg-[#a29074] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#8c7851] transition duration-150 ease-in-out") }}
+                {{ form.cancel(class="w-full py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition duration-150 ease-in-out") }}
+            </div>
+        </form>
+    </div>
+</main>
+{% endblock %}

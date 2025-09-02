@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% block title %}Home | Café Fausse{% endblock %}
+
+{% block container %}
+<main class="w-full container mx-auto bg-white rounded-lg shadow-lg my-8 overflow-hidden">
+    
+    <!-- Hero Section with Prominent Name and Image -->
+    <div class="relative w-full h-96">
+        <img src="https://placehold.co/900x500/8c7851/f7f3e9?text=Café+Fausse+Interior" onerror="this.onerror=null;this.src='home-cafe-fausse.jpg';" alt="A beautifully decorated café interior" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center rounded-lg">
+            <h1 class="text-6xl md:text-8xl font-bold text-white text-shadow-lg text-center leading-tight">Café Fausse</h1>
+        </div>
+    </div>
+    
+    <!-- Welcome Message and Description -->
+    <div class="p-8 md:p-12 text-center">
+        <h2 class="text-4xl font-semibold text-[#8c7851] mb-4">A Taste of Parisian Elegance</h2>
+        <p class="text-lg text-gray-700 max-w-2xl mx-auto">
+            Welcome to Café Fausse, where culinary artistry meets classic European charm. 
+            We invite you to experience a menu crafted with the finest seasonal ingredients,
+            an ambiance that feels like a quiet corner of Paris, and service that is both
+            warm and impeccable.
+        </p>
+    </div>
+
+    <!-- Contact Information and Hours -->
+    <div class="p-8 md:p-12 bg-[#f7f3e9] rounded-b-lg">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <!-- Contact Info -->
+            <div class="flex flex-col items-center md:items-start text-center md:text-left">
+                <h3 class="text-2xl font-bold text-[#8c7851] mb-4">Contact & Location</h3>
+                <div class="text-gray-700 space-y-2">
+                    <p class="flex items-center space-x-2 justify-center md:justify-start">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#8c7851]" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+                        </svg>
+                        <span>1234 Culinary Ave, Suite 100, Washington, DC 20002</span>
+                    </p>
+                    <p class="flex items-center space-x-2 justify-center md:justify-start">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#8c7851]" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.774a11.042 11.042 0 005.581 5.581l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                        </svg>
+                        <span>(202) 555-4567</span>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Hours -->
+            <div class="flex flex-col items-center md:items-end text-center md:text-right">
+                <h3 class="text-2xl font-bold text-[#8c7851] mb-4">Hours</h3>
+                <div class="text-gray-700 space-y-2">
+                    <p><strong>Monday–Saturday:</strong> 5:00 PM – 11:00 PM</p>
+                    <p><strong>Sunday:</strong> 5:00 PM – 9:00 PM</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

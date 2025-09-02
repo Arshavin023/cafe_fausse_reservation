@@ -1,0 +1,203 @@
+{% extends "layout.html" %}
+
+{% block title %}Menu | Café Fausse{% endblock %}
+
+{% block container %}
+<main class="w-full container mx-auto bg-white rounded-lg shadow-lg p-8 md:p-12 my-8">
+    <h1 class="text-5xl font-bold text-center text-[#4a4a4a] mb-12">Our Menu</h1>
+
+    <!-- Starters Section -->
+    <section class="mb-10">
+        <h2 class="text-3xl font-semibold text-[#8c7851] mb-6 border-b-2 border-[#d4c8b7] pb-2">Starters</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="bg-gray-100 rounded-xl overflow-hidden shadow-lg transform hover:scale-105 transition duration-300 ease-in-out">
+                <img class="w-full h-48 object-cover" src="{{ url_for('static', filename='menu-bruschetta.jpg') }}" alt="Bruschetta">
+                <div class="p-6">
+                    <div class="flex justify-between items-center mb-2">
+                        <h3 class="text-xl font-bold text-[#4a4a4a]">Bruschetta</h3>
+                        <span class="text-xl font-bold text-[#4a4a4a]">$8.50</span>
+                    </div>
+                    <p class="text-sm text-gray-600 italic">Fresh tomatoes, basil, olive oil, and toasted baguette slices.</p>
+                </div>
+            </div>
+
+            <div class="bg-gray-100 rounded-xl overflow-hidden shadow-lg transform hover:scale-105 transition duration-300 ease-in-out">
+                <img class="w-full h-48 object-cover" src="{{ url_for('static', filename='menu-caesar-salad.jpg') }}" alt="Caesar Salad">
+                <div class="p-6">
+                    <div class="flex justify-between items-center mb-2">
+                        <h3 class="text-xl font-bold text-[#4a4a4a]">Caesar Salad</h3>
+                        <span class="text-xl font-bold text-[#4a4a4a]">$9.00</span>
+                    </div>
+                    <p class="text-sm text-gray-600 italic">Crisp romaine with homemade Caesar dressing.</p>
+                </div>
+            </div>
+
+            <div class="bg-gray-100 rounded-xl overflow-hidden shadow-lg transform hover:scale-105 transition duration-300 ease-in-out">
+                <img class="w-full h-48 object-cover" src="{{ url_for('static', filename='menu-charcuterie-board.jpg') }}" alt="Charcuterie Board">
+                <div class="p-6">
+                    <div class="flex justify-between items-center mb-2">
+                        <h3 class="text-xl font-bold text-[#4a4a4a]">Charcuterie Board</h3>
+                        <span class="text-xl font-bold text-[#4a4a4a]">$14.00</span>
+                    </div>
+                    <p class="text-sm text-gray-600 italic">A selection of cured meats and artisanal cheeses.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Courses Section -->
+    <section class="mb-10">
+        <h2 class="text-3xl font-semibold text-[#8c7851] mb-6 border-b-2 border-[#d4c8b7] pb-2">Main Courses</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="bg-gray-100 rounded-xl overflow-hidden shadow-lg transform hover:scale-105 transition duration-300 ease-in-out">
+                <img class="w-full h-48 object-cover" src="{{ url_for('static', filename='menu-grilled-salmon.jpg') }}" alt="Grilled Salmon">
+                <div class="p-6">
+                    <div class="flex justify-between items-center mb-2">
+                        <h3 class="text-xl font-bold text-[#4a4a4a]">Grilled Salmon</h3>
+                        <span class="text-xl font-bold text-[#4a4a4a]">$22.00</span>
+                    </div>
+                    <p class="text-sm text-gray-600 italic">Served with lemon butter sauce and seasonal vegetables.</p>
+                </div>
+            </div>
+
+            <div class="bg-gray-100 rounded-xl overflow-hidden shadow-lg transform hover:scale-105 transition duration-300 ease-in-out">
+                <img class="w-full h-48 object-cover" src="{{ url_for('static', filename='menu-ribeye-steak.jpg') }}" alt="Ribeye Steak">
+                <div class="p-6">
+                    <div class="flex justify-between items-center mb-2">
+                        <h3 class="text-xl font-bold text-[#4a4a4a]">Ribeye Steak</h3>
+                        <span class="text-xl font-bold text-[#4a4a4a]">$28.00</span>
+                    </div>
+                    <p class="text-sm text-gray-600 italic">12 oz prime cut with garlic mashed potatoes.</p>
+                </div>
+            </div>
+
+            <div class="bg-gray-100 rounded-xl overflow-hidden shadow-lg transform hover:scale-105 transition duration-300 ease-in-out">
+                <img class="w-full h-48 object-cover" src="{{ url_for('static', filename='menu-vegetable-risotto.jpg') }}" alt="Vegetable Risotto">
+                <div class="p-6">
+                    <div class="flex justify-between items-center mb-2">
+                        <h3 class="text-xl font-bold text-[#4a4a4a]">Vegetable Risotto</h3>
+                        <span class="text-xl font-bold text-[#4a4a4a]">$18.00</span>
+                    </div>
+                    <p class="text-sm text-gray-600 italic">Creamy Arborio rice with wild mushrooms.</p>
+                </div>
+            </div>
+            
+            <div class="bg-gray-100 rounded-xl overflow-hidden shadow-lg transform hover:scale-105 transition duration-300 ease-in-out">
+                <img class="w-full h-48 object-cover" src="{{ url_for('static', filename='menu-lasagna.jpg') }}" alt="Traditional Lasagna">
+                <div class="p-6">
+                    <div class="flex justify-between items-center mb-2">
+                        <h3 class="text-xl font-bold text-[#4a4a4a]">Traditional Lasagna</h3>
+                        <span class="text-xl font-bold text-[#4a4a4a]">$19.50</span>
+                    </div>
+                    <p class="text-sm text-gray-600 italic">Layers of pasta with rich bolognese and béchamel sauces.</p>
+                </div>
+            </div>
+            
+            <div class="bg-gray-100 rounded-xl overflow-hidden shadow-lg transform hover:scale-105 transition duration-300 ease-in-out">
+                <img class="w-full h-48 object-cover" src="{{ url_for('static', filename='menu-margherita-pizza.jpg') }}" alt="Margherita Pizza">
+                <div class="p-6">
+                    <div class="flex justify-between items-center mb-2">
+                        <h3 class="text-xl font-bold text-[#4a4a4a]">Margherita Pizza</h3>
+                        <span class="text-xl font-bold text-[#4a4a4a]">$16.00</span>
+                    </div>
+                    <p class="text-sm text-gray-600 italic">Fresh mozzarella, basil, and San Marzano tomato sauce.</p>
+                </div>
+            </div>
+            
+            <div class="bg-gray-100 rounded-xl overflow-hidden shadow-lg transform hover:scale-105 transition duration-300 ease-in-out">
+                <img class="w-full h-48 object-cover" src="{{ url_for('static', filename='menu-fresh-pasta.jpg') }}" alt="Fresh Pasta">
+                <div class="p-6">
+                    <div class="flex justify-between items-center mb-2">
+                        <h3 class="text-xl font-bold text-[#4a4a4a]">Fresh Pasta</h3>
+                        <span class="text-xl font-bold text-[#4a4a4a]">$20.00</span>
+                    </div>
+                    <p class="text-sm text-gray-600 italic">Hand-made fettuccine with a vibrant arrabbiata sauce.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Desserts Section -->
+    <section class="mb-10">
+        <h2 class="text-3xl font-semibold text-[#8c7851] mb-6 border-b-2 border-[#d4c8b7] pb-2">Desserts</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="bg-gray-100 rounded-xl overflow-hidden shadow-lg transform hover:scale-105 transition duration-300 ease-in-out">
+                <img class="w-full h-48 object-cover" src="{{ url_for('static', filename='menu-tiramisu.jpg') }}" alt="Tiramisu">
+                <div class="p-6">
+                    <div class="flex justify-between items-center mb-2">
+                        <h3 class="text-xl font-bold text-[#4a4a4a]">Tiramisu</h3>
+                        <span class="text-xl font-bold text-[#4a4a4a]">$7.50</span>
+                    </div>
+                    <p class="text-sm text-gray-600 italic">Classic Italian dessert with mascarpone.</p>
+                </div>
+            </div>
+
+            <div class="bg-gray-100 rounded-xl overflow-hidden shadow-lg transform hover:scale-105 transition duration-300 ease-in-out">
+                <img class="w-full h-48 object-cover" src="{{ url_for('static', filename='menu-cheesecake.jpg') }}" alt="Cheesecake">
+                <div class="p-6">
+                    <div class="flex justify-between items-center mb-2">
+                        <h3 class="text-xl font-bold text-[#4a4a4a]">Cheesecake</h3>
+                        <span class="text-xl font-bold text-[#4a4a4a]">$7.00</span>
+                    </div>
+                    <p class="text-sm text-gray-600 italic">Creamy cheesecake with berry compote.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Beverages Section -->
+    <section>
+        <h2 class="text-3xl font-semibold text-[#8c7851] mb-6 border-b-2 border-[#d4c8b7] pb-2">Beverages</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="bg-gray-100 rounded-xl overflow-hidden shadow-lg transform hover:scale-105 transition duration-300 ease-in-out">
+                <img class="w-full h-48 object-cover" src="{{ url_for('static', filename='menu-red-wine.jpg') }}" alt="Red Wine">
+                <div class="p-6">
+                    <div class="flex justify-between items-center mb-2">
+                        <h3 class="text-xl font-bold text-[#4a4a4a]">Red Wine (Glass)</h3>
+                        <span class="text-xl font-bold text-[#4a4a4a]">$10.00</span>
+                    </div>
+                    <p class="text-sm text-gray-600 italic">A selection of Italian reds.</p>
+                </div>
+            </div>
+
+            <div class="bg-gray-100 rounded-xl overflow-hidden shadow-lg transform hover:scale-105 transition duration-300 ease-in-out">
+                <img class="w-full h-48 object-cover" src="{{ url_for('static', filename='menu-white-wine.jpg') }}" alt="White Wine">
+                <div class="p-6">
+                    <div class="flex justify-between items-center mb-2">
+                        <h3 class="text-xl font-bold text-[#4a4a4a]">White Wine (Glass)</h3>
+                        <span class="text-xl font-bold text-[#4a4a4a]">$9.00</span>
+                    </div>
+                    <p class="text-sm text-gray-600 italic">Crisp and refreshing.</p>
+                </div>
+            </div>
+
+            <div class="bg-gray-100 rounded-xl overflow-hidden shadow-lg transform hover:scale-105 transition duration-300 ease-in-out">
+                <img class="w-full h-48 object-cover" src="{{ url_for('static', filename='menu-craft-beer.jpg') }}" alt="Craft Beer">
+                <div class="p-6">
+                    <div class="flex justify-between items-center mb-2">
+                        <h3 class="text-xl font-bold text-[#4a4a4a]">Craft Beer</h3>
+                        <span class="text-xl font-bold text-[#4a4a4a]">$6.00</span>
+                    </div>
+                    <p class="text-sm text-gray-600 italic">Local artisan brews.</p>
+                </div>
+            </div>
+
+            <div class="bg-gray-100 rounded-xl overflow-hidden shadow-lg transform hover:scale-105 transition duration-300 ease-in-out">
+                <img class="w-full h-48 object-cover" src="{{ url_for('static', filename='menu-espresso.jpg') }}" alt="Espresso">
+                <div class="p-6">
+                    <div class="flex justify-between items-center mb-2">
+                        <h3 class="text-xl font-bold text-[#4a4a4a]">Espresso</h3>
+                        <span class="text-xl font-bold text-[#4a4a4a]">$3.00</span>
+                    </div>
+                    <p class="text-sm text-gray-600 italic">Strong and aromatic.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+{% endblock %}

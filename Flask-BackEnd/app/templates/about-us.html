@@ -1,0 +1,85 @@
+{% extends "layout.html" %}
+
+{% block title %}About Us | Café Fausse{% endblock %}
+
+{% block container %}
+<main class="w-full container mx-auto bg-white rounded-lg shadow-lg my-8 p-8 md:p-12">
+    <h1 class="text-5xl font-bold text-center text-[#4a4a4a] mb-12">About Us</h1>
+
+    <!-- Café History and Mission -->
+    <section class="mb-12">
+        <h2 class="text-3xl font-semibold text-[#8c7851] mb-6 border-b-2 border-[#d4c8b7] pb-2">Our Story</h2>
+        <p class="text-lg text-gray-700 leading-relaxed mb-4">
+            Founded in 2010 by the visionary partnership of Chef Antonio Rossi and restaurateur Maria Lopez, 
+            Café Fausse was born from a passion for blending traditional Italian flavors with modern culinary innovation. 
+            Our mission has always been to provide more than just a meal; we strive to create an unforgettable dining 
+            experience that reflects both quality and creativity in every dish.
+        </p>
+    </section>
+
+    <!-- Founder Biographies -->
+    <section class="mb-12">
+        <h2 class="text-3xl font-semibold text-[#8c7851] mb-6 border-b-2 border-[#d4c8b7] pb-2">The Founders</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+            <!-- Antonio Rossi Bio -->
+            <div class="flex flex-col items-center text-center">
+                <img src="https://placehold.co/150x150/d4c8b7/4a4a4a?text=Antonio" alt="Antonio Rossi" class="rounded-full w-40 h-40 object-cover mb-4 shadow-lg">
+                <h3 class="text-2xl font-bold text-[#4a4a4a]">Chef Antonio Rossi</h3>
+                <p class="text-sm text-gray-600 mb-4 italic">Co-Founder & Head Chef</p>
+                <p class="text-gray-700 leading-relaxed">
+                    A master of his craft, Chef Antonio Rossi spent years honing his skills in the kitchens of Milan and Rome. His philosophy is simple:
+                    honor the classic techniques while pushing the boundaries of flavor. At Café Fausse, he transforms locally sourced ingredients into
+                    culinary masterpieces that delight and surprise.
+                </p>
+            </div>
+            
+            <!-- Maria Lopez Bio -->
+            <div class="flex flex-col items-center text-center">
+                <img src="https://placehold.co/150x150/d4c8b7/4a4a4a?text=Maria" alt="Maria Lopez" class="rounded-full w-40 h-40 object-cover mb-4 shadow-lg">
+                <h3 class="text-2xl font-bold text-[#4a4a4a]">Maria Lopez</h3>
+                <p class="text-sm text-gray-600 mb-4 italic">Co-Founder & Restaurateur</p>
+                <p class="text-gray-700 leading-relaxed">
+                    With an exceptional eye for design and a passion for hospitality, Maria Lopez creates the ambiance that makes every visit to Café Fausse 
+                    so special. She believes that the atmosphere is just as important as the food, ensuring that from the moment you step inside, you feel 
+                    welcomed and cared for.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Commitments -->
+    <section>
+        <h2 class="text-3xl font-semibold text-[#8c7851] mb-6 border-b-2 border-[#d4c8b7] pb-2">Our Commitment</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            
+            <div class="flex flex-col items-center p-6 bg-[#f7f3e9] rounded-lg shadow-inner">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-[#8c7851] mb-4" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 2a8 8 0 100 16 8 8 0 000-16zM6.5 9a.5.5 0 01.5-.5h4a.5.5 0 010 1H7a.5.5 0 01-.5-.5z" clip-rule="evenodd" />
+                    <path d="M10 4a6 6 0 100 12 6 6 0 000-12zM9 10a1 1 0 11-2 0 1 1 0 012 0zm3-1a1 1 0 100 2 1 1 0 000-2z" />
+                </svg>
+                <h3 class="text-xl font-bold text-[#4a4a4a] mb-2">Unforgettable Dining</h3>
+                <p class="text-gray-700 text-sm">Every visit is a complete sensory experience, from the ambiance to the final bite.</p>
+            </div>
+
+            <div class="flex flex-col items-center p-6 bg-[#f7f3e9] rounded-lg shadow-inner">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-[#8c7851] mb-4" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.168 1.436 1 1 0 00.176-.118l.842-.647-1.12-1.748-2.072-3.262 3.12-1.56 1.12-1.748-1.548-.774a11.042 11.042 0 005.581 5.581l-.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                </svg>
+                <h3 class="text-xl font-bold text-[#4a4a4a] mb-2">Excellent Food</h3>
+                <p class="text-gray-700 text-sm">Our chefs craft each dish with precision, passion, and a dedication to exquisite flavor.</p>
+            </div>
+
+            <div class="flex flex-col items-center p-6 bg-[#f7f3e9] rounded-lg shadow-inner">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-[#8c7851] mb-4" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm-1-8a1 1 0 11-2 0 1 1 0 012 0zm3 1a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
+                    <path d="M10 18a8 8 0 100-16 8 8 0 000 16zm-1-8a1 1 0 11-2 0 1 1 0 012 0zm3 1a1 1 0 100-2 1 1 0 000 2z" />
+                </svg>
+                <h3 class="text-xl font-bold text-[#4a4a4a] mb-2">Locally Sourced</h3>
+                <p class="text-gray-700 text-sm">We partner with local farmers and suppliers to ensure the freshest, highest-quality ingredients.</p>
+            </div>
+
+        </div>
+    </section>
+
+</main>
+{% endblock %}
