@@ -1,5 +1,5 @@
 # cafe_fausse_reservation
-# 🛒 Café Fausse Reservation System
+# 🗓️Café Fausse Reservation System
 
 This is a web application for Café Fausse, a fictional coffee shop. The system allows customers to view the menu, learn about the cafe, and make table reservations. It is built using the Flask web framework and a PostgreSQL database.
 
