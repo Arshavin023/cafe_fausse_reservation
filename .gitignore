@@ -209,3 +209,30 @@ __marimo__/
 
 # intellij idea
 .idea
+
+# Project-specific sensitive files
+# Database configuration (CONTAINS SENSITIVE DATA)
+config.ini
+database_credentials/
+*.db
+
+# Virtual environment for this project
+venv_cafe/
+
+# React/Node.js (frontend)
+frontend/node_modules/
+frontend/build/
+frontend/.env
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend/.env.production.local
+
+# Database backups (may contain sensitive data)
+*.sql
+*_backup.sql
+cafe_fausse_db_backup.sql
+
+# System files
+.DS_Store
+Thumbs.db

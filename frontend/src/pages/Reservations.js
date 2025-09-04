@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useAppContext } from '../context/AppContext';
+import ApiService from '../services/api';
 
 function Reservations() {
   const { addReservation } = useAppContext();
@@ -13,6 +14,7 @@ function Reservations() {
   });
 
   const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     setFormData({
@@ -54,7 +56,7 @@ function Reservations() {
     return newErrors;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     
     const newErrors = validateForm();
@@ -63,28 +65,32 @@ function Reservations() {
       return;
     }
 
-    // Assign random table number (simulate backend logic)
-    const randomTable = Math.floor(Math.random() * 30) + 1;
-    
-    const reservation = {
-      ...formData,
-      tableNumber: randomTable,
-      reservationId: Date.now()
-    };
+    setLoading(true);
 
-    addReservation(reservation);
-    
-    alert(`Reservation confirmed! Table ${randomTable} has been reserved for ${formData.customerName}.`);
-    
-    // Reset form
-    setFormData({
-      customerName: '',
-      customerEmail: '',
-      phoneNumber: '',
-      timeSlot: '',
-      numberOfGuests: '',
-      tableNumber: ''
-    });
+    try {
+      const response = await ApiService.createReservation(formData);
+      
+      // Add to local context as well
+      addReservation(response.reservation);
+      
+      alert(`Reservation confirmed! Table ${response.reservation.table_number} has been reserved for ${formData.customerName}.`);
+      
+      // Reset form
+      setFormData({
+        customerName: '',
+        customerEmail: '',
+        phoneNumber: '',
+        timeSlot: '',
+        numberOfGuests: '',
+        tableNumber: ''
+      });
+      setErrors({});
+      
+    } catch (error) {
+      setErrors({ submit: error.message });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -167,8 +173,19 @@ function Reservations() {
               {errors.numberOfGuests && <p style={{color: 'red', fontSize: '0.9rem'}}>{errors.numberOfGuests}</p>}
             </div>
 
-            <button type="submit" className="btn btn-primary" style={{width: '100%'}}>
-              Reserve Table
+            {errors.submit && (
+              <p style={{color: 'red', fontSize: '0.9rem', marginBottom: '1rem'}}>
+                {errors.submit}
+              </p>
+            )}
+
+            <button 
+              type="submit" 
+              className="btn btn-primary" 
+              style={{width: '100%'}}
+              disabled={loading}
+            >
+              {loading ? 'Making Reservation...' : 'Reserve Table'}
             </button>
           </form>
         </div>

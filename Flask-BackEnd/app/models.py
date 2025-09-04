@@ -1,6 +1,6 @@
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
-from app.db_config.db_config import read_db_config
+from .db_config.db_config import read_db_config
 
 # Load config
 db_config = read_db_config()
@@ -23,15 +23,28 @@ class Customer(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     email_address = db.Column(db.String(255), unique=True, nullable=False)
-    password = db.Column(db.String(255), nullable=False)
+    password = db.Column(db.String(255), nullable=True)  # Allow NULL for reservation-created customers
     customer_name = db.Column(db.String(255), nullable=True)
     phone_number = db.Column(db.String(20))
     newsletter_signup = db.Column(db.Boolean, default=False)
+    created_at = db.Column(db.DateTime, default=db.func.current_timestamp())
 
     reservations = db.relationship('Reservation', backref='customer', lazy=True)
 
     def __repr__(self):
         return f'<Customer {self.email_address}>'
+
+
+class Newsletter(db.Model):
+    __tablename__ = 'newsletters'
+
+    id = db.Column(db.Integer, primary_key=True)
+    email = db.Column(db.String(255), unique=True, nullable=False)
+    newsletter_signup = db.Column(db.Boolean, default=True)
+    created_at = db.Column(db.DateTime, default=db.func.current_timestamp())
+
+    def __repr__(self):
+        return f'<Newsletter {self.email}>'
 
 
 class Reservation(db.Model):
@@ -50,3 +63,4 @@ class Reservation(db.Model):
     time_slot = db.Column(db.DateTime, nullable=False)
     table_number = db.Column(db.Integer, nullable=False)
     number_of_guests = db.Column(db.Integer, nullable=False)
+    created_at = db.Column(db.DateTime, default=db.func.current_timestamp())

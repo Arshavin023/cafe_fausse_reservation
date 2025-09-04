@@ -7,6 +7,7 @@
 #     return app
 
 from flask import Flask
+from flask_cors import CORS
 from .routes import main
 from .db_config.db_config import read_db_config
 from .models import db, DATABASE_URL
@@ -26,6 +27,7 @@ def create_app():
 
     # Initialize extensions
     db.init_app(app)
+    CORS(app)  # Enable CORS for React frontend
 
     # Register blueprints for routes
     app.register_blueprint(main)
