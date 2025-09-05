@@ -236,3 +236,4 @@ cafe_fausse_db_backup.sql
 # System files
 .DS_Store
 Thumbs.db
+.env

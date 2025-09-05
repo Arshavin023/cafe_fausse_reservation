@@ -4,13 +4,7 @@
 This is a web application for Café Fausse, a fictional coffee shop. The system allows customers to view the menu, learn about the cafe, and make table reservations. It is built using the Flask web framework and a PostgreSQL database.
 
 # How Reservation Works
-
-To combat the issue of no-shows and ensure the efficient use of our seating, the reservation system employs a credit card hold mechanism.
-When a customer makes a reservation, the system requires their credit card details. These details are used to place a temporary authorization hold for a small amount (e.g., $10 per person). This is not a charge, but a verification that the card is valid and has sufficient funds.
-Successful Authorization: The reservation is confirmed and the table is secured.
-Failed Authorization: The reservation is not created, and the user is prompted to try again with a valid card.
-In the event of a no-show, the café reserves the right to convert the authorization hold into a final charge, compensating the business for the lost opportunity. This ensures a fairer system for all customers and staff.
-
+Customers arrives at the website, explores and proceeds to either register as new or existing customers.
 ---
 
 ## 🚀 Features
@@ -38,97 +32,51 @@ In the event of a no-show, the café reserves the right to convert the authoriza
 
 ---
 
-## 📚 API Endpoints Overview
+### 📚 API Endpoints Overview
 
-### 1. 🔐 Authentication & Authorization
-
-| Endpoint | Method | Description |
-|----------|--------|-------------|
-| `/register` | POST | Customer Registration |
-| `/login` | POST | Customer Login |
-| `/refresh` | POST | Refresh JWT Token |
-| `/logout` | POST | Customer Logout |
-| `/roles` | GET | Get Roles (Admin) |
-| `/assign-role` | POST | Assign Role to User (Admin) |
+This section provides an overview of the RESTful API endpoints available in the application, categorized by their function.
 
 ---
 
-### 2. 👤 User Profile
+### 1. 🗓️ Reservations
 
-| Endpoint | Method | Description |
-|----------|--------|-------------|
-| `/profile/{id}` | GET | Get Customer Profile |
-| `/profiles` | GET | Get All Customer Profiles (Admin) |
+Manage the booking of tables for customers and guests.
 
----
-
-### 3. 🗂️ Home, Menu, Gallery, About-Us
-
-| Endpoint | Method | Description |
-|----------|--------|-------------|
-| `/home` | GET | Access HomePage |
-| `/menu` | GET | View Menu Items |
-| `/gallery` | GET | View Aesthetics of Restaurant |
-| `/about-us` | GET | Read About Restaurant |
+| Endpoint | Method | Description | Request Body Example |
+|---|---|---|---|
+| `/api/reservations` | `POST` | Creates a new reservation. Can be for an existing customer or a guest. | `{"customerName": "John Doe", "customerEmail": "john@example.com", "timeSlot": "2025-12-25T19:00:00Z", "numberOfGuests": 4, "phoneNumber": "123-456-7890", "saveCustomerInfo": true}` |
+| `/api/reservations` | `GET` | Retrieves a list of all reservations, including customer and guest details. | *(None)* |
 
 ---
 
-### 4. 📦 Reservation Management
+### 2. 👤 Customers
 
-| Endpoint | Method | Description |
-|----------|--------|-------------|
-| `/reservations/create` | POST | Book New Reservation |
-| `/reservations/{id}` | GET | Get Reservation Details |
-| `/reservations` | GET | List User Reservations |
-| `/reservations/update/{id}/status` | PUT | Update Reservation Schedule |
+Endpoints for managing customer information.
 
----
-
-### 6. 🛒 Cart & Checkout
-
-| Endpoint | Method | Description |
-|----------|--------|-------------|
-| `/cart` | POST | Add Item to Cart |
-| `/cart` | GET | Get Cart Items |
-| `/cart/{item_id}` | DELETE | Remove Item from Cart |
-| `/checkout` | POST | Checkout and Create Order |
+| Endpoint | Method | Description | Request Body Example |
+|---|---|---|---|
+| `/api/customers/register` | `POST` | Registers a new customer account. | `{"email": "jane@example.com", "name": "Jane Smith", "phone": "987-654-3210", "newsletter_signup": true}` |
+| `/api/customers/<email>` | `GET` | Retrieves detailed information for a specific customer based on their email. | *(None)* |
 
 ---
 
-### 7. 💳 Payment Integration
+### 3. 💌 Newsletter
 
-| Endpoint | Method | Description |
-|----------|--------|-------------|
-| `/payment` | POST | Initiate Payment |
-| `/payment/verify/{transaction_id}` | GET | Verify Payment Status |
+Manage subscriptions to the cafe's newsletter.
 
----
-
-### 8. ⭐ Review & Rating
-
-| Endpoint | Method | Description |
-|----------|--------|-------------|
-| `/reviews` | POST | Add Product Review |
-| `/products/{id}/reviews` | GET | Get Reviews for Product |
+| Endpoint | Method | Description | Request Body Example |
+|---|---|---|---|
+| `/api/newsletter` | `POST` | Subscribes an email to the newsletter. Reactivates a subscription if one already exists. | `{"email": "user@example.com"}` |
+| `/api/newsletter/unsubscribe` | `POST` | Unsubscribes an email from the newsletter. | `{"email": "user@example.com"}` |
+| `/api/newsletter/status/<email>` | `GET` | Checks the subscription status of a given email. | *(None)* |
 
 ---
 
-### 9. 🔔 Notifications
+### 4. 🏥 Health Check
 
 | Endpoint | Method | Description |
-|----------|--------|-------------|
-| `/notifications` | GET | List Order Notifications |
-| `/notifications/{id}` | PUT | Mark Notification as Read |
-
----
-
-### 10. 📊 Admin Reporting
-
-| Endpoint | Method | Description |
-|----------|--------|-------------|
-| `/reports/sales` | GET | Get Sales Report |
-| `/reports/users` | GET | Get User Analytics |
-| `/dashboard/stats` | GET | Get Summary Stats |
+|---|---|---|
+| `/api/health` | `GET` | Returns the health status of the API and an overview of available endpoints. |
 
 ---
 
